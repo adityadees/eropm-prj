@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Sep 2018 pada 09.10
--- Versi server: 10.1.31-MariaDB
--- Versi PHP: 7.2.3
+-- Generation Time: Oct 26, 2018 at 11:31 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bagian`
+-- Table structure for table `bagian`
 --
 
 CREATE TABLE `bagian` (
@@ -35,20 +35,20 @@ CREATE TABLE `bagian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `bagian`
+-- Dumping data for table `bagian`
 --
 
 INSERT INTO `bagian` (`bagian_id`, `kategori_id`, `bagian_judul`) VALUES
 (1, 1, 'Pemulihan Keanekaragaman hayati (Biodiversity Recovery)'),
 (2, 1, 'Remediasi tanah (Soil Remediation)'),
 (3, 1, 'Penggunaan tanaman lokal (Planting of Local Plant)'),
-(4, 1, 'Pelarangan penggunaan tanaman eksotik invasif (Prohibitition of planting Invasive exotic plant species'),
+(4, 1, 'Pelarangan penggunaan tanaman eksotik invasif (Prohibitition of planting Invasive exotic plant species)'),
 (5, 1, 'Monitoring dan evaluasi (Monitoring and evaluation)');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hasil`
+-- Table structure for table `hasil`
 --
 
 CREATE TABLE `hasil` (
@@ -59,18 +59,19 @@ CREATE TABLE `hasil` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `hasil`
+-- Dumping data for table `hasil`
 --
 
 INSERT INTO `hasil` (`hasil_kode`, `perusahaan_id`, `lokasi_id`, `hasil_selch`) VALUES
 ('KDR18014091827', 21, 21, 100),
 ('KDR34514091810', 20, 20, 79),
-('KDR410140918010', 1, 1, 92);
+('KDR410140918010', 1, 1, 92),
+('KDR48017091831', 23, 23, 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori`
+-- Table structure for table `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -81,7 +82,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori`
+-- Dumping data for table `kategori`
 --
 
 INSERT INTO `kategori` (`kategori_id`, `kategori_judul`, `kategori_jenis`, `kategori_ref`) VALUES
@@ -100,7 +101,7 @@ INSERT INTO `kategori` (`kategori_id`, `kategori_judul`, `kategori_jenis`, `kate
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `lokasi`
+-- Table structure for table `lokasi`
 --
 
 CREATE TABLE `lokasi` (
@@ -111,18 +112,20 @@ CREATE TABLE `lokasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `lokasi`
+-- Dumping data for table `lokasi`
 --
 
 INSERT INTO `lokasi` (`lokasi_id`, `lokasi_alamat`, `lokasi_lat`, `lokasi_long`) VALUES
 (1, 'Jl. Anggrek, Sungai Kedukan, Rambutan, Kabupaten Banyu Asin, Sumatera Selatan 30967, Indonesia', '-2.99186700', '104.85398580'),
 (20, 'Desa Pandan, Tanah Abang, Pandan, Muara Enim, Penukal Abab Lematang Ilir, Sumatera Selatan 31314, Indonesia', '-3.30541450', '104.20579430'),
-(21, 'Seri Bandung, Pemulutan Bar., Kabupaten Ogan Ilir, Sumatera Selatan, Indonesia', '-3.18805510', '104.72584430');
+(21, 'Seri Bandung, Pemulutan Bar., Kabupaten Ogan Ilir, Sumatera Selatan, Indonesia', '-3.18805510', '104.72584430'),
+(22, 'Simpang Pelabuhan Dalam, Pemulutan, Kabupaten Ogan Ilir, Sumatera Selatan, Indonesia', '-3.08823210', '104.73459370'),
+(23, 'Simpang Pelabuhan Dalam, Pemulutan, Kabupaten Ogan Ilir, Sumatera Selatan, Indonesia', '-3.08823210', '104.73459370');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penilaian`
+-- Table structure for table `penilaian`
 --
 
 CREATE TABLE `penilaian` (
@@ -134,7 +137,7 @@ CREATE TABLE `penilaian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `penilaian`
+-- Dumping data for table `penilaian`
 --
 
 INSERT INTO `penilaian` (`penilaian_id`, `kategori_id`, `penilaian_judul`, `penilaian_bobot`, `penilaian_point`) VALUES
@@ -163,7 +166,7 @@ INSERT INTO `penilaian` (`penilaian_id`, `kategori_id`, `penilaian_judul`, `peni
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `perusahaan`
+-- Table structure for table `perusahaan`
 --
 
 CREATE TABLE `perusahaan` (
@@ -178,18 +181,20 @@ CREATE TABLE `perusahaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `perusahaan`
+-- Dumping data for table `perusahaan`
 --
 
 INSERT INTO `perusahaan` (`perusahaan_id`, `perusahaan_nama`, `perusahaan_alamat`, `perusahaan_tel`, `perusahaan_fax`, `perusahaan_bidang`, `perusahaan_pj`, `perusahaan_jabatan`) VALUES
-(1, 'PerusahaanX', 'jl.aaa', '082222', '08777', 'Industri', 'AdityaDS', 'Jabatan1'),
-(20, 'XR', 'jl.aaa', '08222', '08777', 'Jasa', 'AdityaDS', 'Manager'),
-(21, 'Perusahaan PT', 'Jl. antasari', '08333', '087777', 'Bidang1', 'AdityaDS', 'Direkturs');
+(1, 'PT. Abdi Jaya', 'Jl. Diponergoro', '082222', '08777', 'Industri', 'AdityaDS', 'Manager'),
+(20, 'PT. Musi Abadi', 'Jl. Cucak Rowo', '08222', '08777', 'Jasa', 'AdityaDS', 'Manager'),
+(21, 'PT. Rawa Sari', 'Jl. Antasari', '08333', '087777', 'Kontraktor', 'AdityaDS', 'Direktur'),
+(22, 'PT. XYZ', 'Jl. Malaka', '0812345678', '0711111', 'Jasa', 'Rossi Passarella', 'Manager'),
+(23, 'PT. XYZ', 'Jl. Malaka', '0812345678', '07111111', 'Jasa', 'Rossi Passarella', 'Manager');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `selection`
+-- Table structure for table `selection`
 --
 
 CREATE TABLE `selection` (
@@ -200,7 +205,7 @@ CREATE TABLE `selection` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `selection`
+-- Dumping data for table `selection`
 --
 
 INSERT INTO `selection` (`selection_id`, `kategori_id`, `subbag_id`, `status`) VALUES
@@ -259,7 +264,7 @@ INSERT INTO `selection` (`selection_id`, `kategori_id`, `subbag_id`, `status`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `subbag`
+-- Table structure for table `subbag`
 --
 
 CREATE TABLE `subbag` (
@@ -270,7 +275,7 @@ CREATE TABLE `subbag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `subbag`
+-- Dumping data for table `subbag`
 --
 
 INSERT INTO `subbag` (`subbag_id`, `kategori_id`, `bagian_id`, `subbag_judul`) VALUES
@@ -285,7 +290,7 @@ INSERT INTO `subbag` (`subbag_id`, `kategori_id`, `bagian_id`, `subbag_judul`) V
 (9, 2, 2, 'Pengendalian air asam tambang (Control of acid mine water)'),
 (10, 2, 2, 'Perlakuan khusus terhadap toksik pada tanah (Special treatment of toxic to soil)'),
 (11, 2, 3, 'Pernyataan secara elsplisit atau implisit dalam peraturan (Explicitly or implicitly statement in the regulation)'),
-(12, 2, 3, 'Habutat asli spesies tanaman (Native habitat of plant species)'),
+(12, 2, 3, 'Habitat asli spesies tanaman (Native habitat of plant species)'),
 (13, 2, 3, 'Presentase per hektar (Precentage per hectare)'),
 (14, 2, 4, 'Pernyataan secara eksplisit atau implisit dalam peraturan (Explicitly or implicitly statement in the regulation)'),
 (15, 2, 4, 'Sanksi tegas (Strict sanction)'),
@@ -295,7 +300,7 @@ INSERT INTO `subbag` (`subbag_id`, `kategori_id`, `bagian_id`, `subbag_judul`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sub_penilaian`
+-- Table structure for table `sub_penilaian`
 --
 
 CREATE TABLE `sub_penilaian` (
@@ -306,7 +311,7 @@ CREATE TABLE `sub_penilaian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `sub_penilaian`
+-- Dumping data for table `sub_penilaian`
 --
 
 INSERT INTO `sub_penilaian` (`sub_pid`, `penilaian_id`, `subp_judul`, `subp_bobot`) VALUES
@@ -316,7 +321,7 @@ INSERT INTO `sub_penilaian` (`sub_pid`, `penilaian_id`, `subp_judul`, `subp_bobo
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `temp`
+-- Table structure for table `temp`
 --
 
 CREATE TABLE `temp` (
@@ -327,7 +332,7 @@ CREATE TABLE `temp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `temp`
+-- Dumping data for table `temp`
 --
 
 INSERT INTO `temp` (`temp_id`, `temp_kode`, `temp_kat`, `tem_value`) VALUES
@@ -396,12 +401,34 @@ INSERT INTO `temp` (`temp_id`, `temp_kode`, `temp_kat`, `tem_value`) VALUES
 (540, 'KDR18014091827', 11, 4.2),
 (541, 'KDR18014091827', 11, 3.2),
 (542, 'KDR18014091827', 7, 4.5),
-(543, 'KDR18014091827', 7, 0.6);
+(543, 'KDR18014091827', 7, 0.6),
+(566, 'KDR48017091831', 6, 7.5),
+(567, 'KDR48017091831', 6, 6.75),
+(568, 'KDR48017091831', 6, 6),
+(569, 'KDR48017091831', 6, 5.25),
+(570, 'KDR48017091831', 7, 2),
+(571, 'KDR48017091831', 7, 1.5),
+(572, 'KDR48017091831', 8, 5),
+(573, 'KDR48017091831', 8, 6),
+(574, 'KDR48017091831', 8, 7),
+(575, 'KDR48017091831', 8, 8),
+(576, 'KDR48017091831', 8, 9),
+(577, 'KDR48017091831', 9, 40),
+(578, 'KDR48017091831', 9, 6.5),
+(579, 'KDR48017091831', 9, 5.5),
+(580, 'KDR48017091831', 10, 2.25),
+(581, 'KDR48017091831', 10, 5.25),
+(582, 'KDR48017091831', 10, 3),
+(583, 'KDR48017091831', 10, 4),
+(584, 'KDR48017091831', 11, 10),
+(585, 'KDR48017091831', 11, 5),
+(586, 'KDR48017091831', 7, 3),
+(587, 'KDR48017091831', 7, 2.5);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -411,56 +438,58 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `user_username`, `user_password`) VALUES
-(1, 'adityads', '202cb962ac59075b964b07152d234b70');
+(1, 'rossi', '202cb962ac59075b964b07152d234b70');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `bagian`
+-- Indexes for table `bagian`
 --
 ALTER TABLE `bagian`
   ADD PRIMARY KEY (`bagian_id`),
   ADD KEY `kategori_id` (`kategori_id`);
 
 --
--- Indeks untuk tabel `hasil`
+-- Indexes for table `hasil`
 --
 ALTER TABLE `hasil`
-  ADD PRIMARY KEY (`hasil_kode`);
+  ADD PRIMARY KEY (`hasil_kode`),
+  ADD KEY `perusahaan_id` (`perusahaan_id`),
+  ADD KEY `lokasi_id` (`lokasi_id`);
 
 --
--- Indeks untuk tabel `kategori`
+-- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`kategori_id`);
 
 --
--- Indeks untuk tabel `lokasi`
+-- Indexes for table `lokasi`
 --
 ALTER TABLE `lokasi`
   ADD PRIMARY KEY (`lokasi_id`);
 
 --
--- Indeks untuk tabel `penilaian`
+-- Indexes for table `penilaian`
 --
 ALTER TABLE `penilaian`
   ADD PRIMARY KEY (`penilaian_id`),
   ADD KEY `kategori_id` (`kategori_id`);
 
 --
--- Indeks untuk tabel `perusahaan`
+-- Indexes for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
   ADD PRIMARY KEY (`perusahaan_id`);
 
 --
--- Indeks untuk tabel `selection`
+-- Indexes for table `selection`
 --
 ALTER TABLE `selection`
   ADD PRIMARY KEY (`selection_id`),
@@ -468,7 +497,7 @@ ALTER TABLE `selection`
   ADD KEY `subbag_id` (`subbag_id`);
 
 --
--- Indeks untuk tabel `subbag`
+-- Indexes for table `subbag`
 --
 ALTER TABLE `subbag`
   ADD PRIMARY KEY (`subbag_id`),
@@ -476,123 +505,139 @@ ALTER TABLE `subbag`
   ADD KEY `bagian_id` (`bagian_id`);
 
 --
--- Indeks untuk tabel `sub_penilaian`
+-- Indexes for table `sub_penilaian`
 --
 ALTER TABLE `sub_penilaian`
   ADD PRIMARY KEY (`sub_pid`),
   ADD KEY `penilaian_id` (`penilaian_id`);
 
 --
--- Indeks untuk tabel `temp`
+-- Indexes for table `temp`
 --
 ALTER TABLE `temp`
-  ADD PRIMARY KEY (`temp_id`);
+  ADD PRIMARY KEY (`temp_id`),
+  ADD KEY `temp_ibfk_1` (`temp_kode`),
+  ADD KEY `temp_kat` (`temp_kat`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `bagian`
+-- AUTO_INCREMENT for table `bagian`
 --
 ALTER TABLE `bagian`
   MODIFY `bagian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori`
+-- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `lokasi`
+-- AUTO_INCREMENT for table `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `lokasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `lokasi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT untuk tabel `penilaian`
+-- AUTO_INCREMENT for table `penilaian`
 --
 ALTER TABLE `penilaian`
-  MODIFY `penilaian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `penilaian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT untuk tabel `perusahaan`
+-- AUTO_INCREMENT for table `perusahaan`
 --
 ALTER TABLE `perusahaan`
-  MODIFY `perusahaan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `perusahaan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT untuk tabel `selection`
+-- AUTO_INCREMENT for table `selection`
 --
 ALTER TABLE `selection`
   MODIFY `selection_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT untuk tabel `subbag`
+-- AUTO_INCREMENT for table `subbag`
 --
 ALTER TABLE `subbag`
   MODIFY `subbag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `sub_penilaian`
+-- AUTO_INCREMENT for table `sub_penilaian`
 --
 ALTER TABLE `sub_penilaian`
   MODIFY `sub_pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `temp`
+-- AUTO_INCREMENT for table `temp`
 --
 ALTER TABLE `temp`
-  MODIFY `temp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=544;
+  MODIFY `temp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=588;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `bagian`
+-- Constraints for table `bagian`
 --
 ALTER TABLE `bagian`
   ADD CONSTRAINT `bagian_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `penilaian`
+-- Constraints for table `hasil`
+--
+ALTER TABLE `hasil`
+  ADD CONSTRAINT `hasil_ibfk_1` FOREIGN KEY (`perusahaan_id`) REFERENCES `perusahaan` (`perusahaan_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `hasil_ibfk_2` FOREIGN KEY (`lokasi_id`) REFERENCES `lokasi` (`lokasi_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `penilaian`
 --
 ALTER TABLE `penilaian`
   ADD CONSTRAINT `penilaian_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `selection`
+-- Constraints for table `selection`
 --
 ALTER TABLE `selection`
   ADD CONSTRAINT `selection_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `selection_ibfk_2` FOREIGN KEY (`subbag_id`) REFERENCES `subbag` (`subbag_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `subbag`
+-- Constraints for table `subbag`
 --
 ALTER TABLE `subbag`
   ADD CONSTRAINT `subbag_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategori` (`kategori_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `subbag_ibfk_2` FOREIGN KEY (`bagian_id`) REFERENCES `bagian` (`bagian_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `sub_penilaian`
+-- Constraints for table `sub_penilaian`
 --
 ALTER TABLE `sub_penilaian`
   ADD CONSTRAINT `sub_penilaian_ibfk_1` FOREIGN KEY (`penilaian_id`) REFERENCES `penilaian` (`penilaian_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `temp`
+--
+ALTER TABLE `temp`
+  ADD CONSTRAINT `temp_ibfk_1` FOREIGN KEY (`temp_kode`) REFERENCES `hasil` (`hasil_kode`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `temp_ibfk_2` FOREIGN KEY (`temp_kat`) REFERENCES `kategori` (`kategori_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
